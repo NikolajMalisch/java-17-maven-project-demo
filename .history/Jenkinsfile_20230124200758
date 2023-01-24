@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Release') {
             steps{
-              sh "docker build -t nikolajm/java17:${BUILD_NUMBER}"
+              sh "docker build -t nikolajm/java17"
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
         }
