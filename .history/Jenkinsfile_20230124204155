@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Release') {
             steps{
-              withCredentials()  
+              wit  
               sh '''
               docker build -t nikolajm/java17:${BUILD_NUMBER} ."
               docker login -u $USERNAME -p $PASSWORD

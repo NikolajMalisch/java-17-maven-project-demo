@@ -14,11 +14,9 @@ pipeline {
         }
         stage('Release') {
             steps{
-              withCredentials()  
               sh '''
               docker build -t nikolajm/java17:${BUILD_NUMBER} ."
-              docker login -u $USERNAME -p $PASSWORD
-              docker push  nikolajm/java17:${BUILD_NUMBER}
+              docker login -u $U
               '''
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
