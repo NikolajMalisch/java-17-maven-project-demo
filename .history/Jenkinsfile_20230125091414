@@ -16,7 +16,6 @@ pipeline {
             steps{
              withCredentials([usernamePassword(credentialsID: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])  
               sh '''
-              docker login -u $USERNAME -p $PASSWORD
               docker build -t nikolajm/java17:${BUILD_NUMBER} ."
               docker push  nikolajm/java17:${BUILD_NUMBER}
               '''
